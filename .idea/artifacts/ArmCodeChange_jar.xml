@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ArmCodeChange:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ArmCodeChange_jar</output-path>
+    <root id="archive" name="ArmCodeChange.jar">
+      <element id="module-output" name="ArmCodeChange" />
+    </root>
+  </artifact>
+</component>
