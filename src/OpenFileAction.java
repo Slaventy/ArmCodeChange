@@ -6,26 +6,24 @@ import java.io.*;
 import java.util.Scanner;
 
 public class OpenFileAction extends Component implements ActionListener {
+    protected StringBuilder stringBuilder = new StringBuilder();
+    protected JFileChooser chooser = new JFileChooser();
+
     @Override
     public void actionPerformed(ActionEvent e) {
-                JFileChooser chooser = new JFileChooser();
-                chooser.setCurrentDirectory(new File("."));
-                chooser.showOpenDialog(OpenFileAction.this);
-                File openFile = chooser.getSelectedFile().getAbsoluteFile();
-        StringBuilder stringBuilder = new StringBuilder();
+        FrameContent.textArea.removeAll();
+        stringBuilder.delete(0, stringBuilder.length());
                 try {
-//                    FileReader fileReader = new FileReader(openFile);
-
+                    chooser.setCurrentDirectory(new File("."));
+                    chooser.showOpenDialog(OpenFileAction.this);
+                    File openFile = chooser.getSelectedFile().getAbsoluteFile();
                     Scanner scanner = new Scanner(openFile, "Cp866");
                     while(scanner.hasNextLine()){
                         stringBuilder.append(scanner.nextLine()).append("\n");
                     }
-                    FrameContent.string = stringBuilder.toString();
-                    FrameContent.textArea.append(FrameContent.string);
+                    FrameContent.textArea.setText(stringBuilder.toString());
                 }catch (Exception exception){
                     exception.printStackTrace();
                 }
-
     }
-
 }

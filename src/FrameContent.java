@@ -2,18 +2,21 @@ import javax.swing.*;
 import java.awt.*;
 
 public class FrameContent extends JFrame {
-    private static final int DEFAULT_WEIGHT = 800;
-    private static final int DEFAULT_HEIGHT = 800;
-    protected static String string = "11223554";
-    protected static JTextArea textArea = new JTextArea();
+    private static final int DEFAULT_WEIGHT = 500;
+    private static final int DEFAULT_HEIGHT = 500;
+    protected static JTextArea textArea;
 
     public FrameContent(String str){
         //В окне создаем менюБар
         JMenuBar jMenuBar = new JMenuBar();
 
         //Создаем текстовое поле
+        textArea = new JTextArea(8, 40);
         textArea.setEditable(false);//поле не редактируется
-        textArea.setFont(new Font("Consolas", Font.PLAIN, 11));//меняем стиль
+        textArea.setFont(new Font("Liberation Mono", Font.PLAIN, 9));//меняем стиль
+
+        //создание скрол панели для текстового поля
+        JScrollPane jScrollPane = new JScrollPane(textArea);
 
         //Пункты менюБар
         JMenu jFile = new JMenu("File");
@@ -47,19 +50,19 @@ public class FrameContent extends JFrame {
         //Слушаем пункты менюБар
         jOpen.addActionListener(new OpenFileAction());
 
-        add(textArea);
         jSave.addActionListener(new SaveFileAction());
         jPrint.addActionListener(new PrintAction());
         jExit.addActionListener(new ExitAction());
         about.addActionListener(new AboutAction());
         instruction.addActionListener(new InstructionAction());
 
+        //располагаем скрол панель с текстовым полем во фрейме
+        add(jScrollPane, BorderLayout.CENTER);
+
         //установки фрейма
         setSize(DEFAULT_WEIGHT, DEFAULT_HEIGHT);
         setTitle(str);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-
-
     }
 }

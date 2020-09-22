@@ -9,8 +9,8 @@ import java.awt.print.PrinterException;
 public class PrintAction implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
-        JEditorPane text = new JEditorPane("cp1251", FrameContent.string);
-        text.setFont(new Font("Consolas", Font.PLAIN, 9));//меняем стиль на отображаемый
+        JEditorPane text = new JEditorPane("Liberation Mono", FrameContent.textArea.getText());
+        text.setFont(new Font("Liberation Mono", Font.PLAIN, 9));//меняем стиль на отображаемый
         text.setAutoscrolls(true);
         PrintService service = PrintServiceLookup.lookupDefaultPrintService();
 

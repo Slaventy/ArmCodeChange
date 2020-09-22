@@ -19,7 +19,7 @@ public class InstructionAction implements ActionListener {
         textArea1.setColumns(5);
         scrollbar.add(textArea1);
         textArea1.append("Программа предназначена для преобразования текста\nформата CP866 в формат UTF-8.\n1.Открыть файл формата CP866: File->Open\n" +
-                "2.Убедиться в читаемости информации отображенной в окне программы\n3.Сохранить файл: File->Save\n4.Выйти из программы: File->Exit");
+                "2.Убедиться в читаемости информации отображенной в окне программы\n3.Сохранить файл: File->Save\n4.Распечатать File->Print\n5. Выйти из программы: File->Exit");
         textArea.setEditable(false);
         textArea1.setEditable(false);
         instruction1.add(textArea, BorderLayout.NORTH);

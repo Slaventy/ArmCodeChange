@@ -6,7 +6,7 @@ public class MainFrame {
         //создаем новый поток
         EventQueue.invokeLater(() -> {
             //Запускаем класс с диалоговым окном
-            new FrameContent("ArmToWin");
+            FrameContent frameContent = new FrameContent("ArmToWin");
         });
     }
 }

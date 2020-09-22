@@ -16,7 +16,7 @@ public class SaveFileAction extends Component implements ActionListener {
         File saveFile = chooser.getSelectedFile().getAbsoluteFile();
         try {
             FileWriter fileWriter = new FileWriter(saveFile);
-            fileWriter.write(FrameContent.string);
+            fileWriter.write(FrameContent.textArea.getText());
             fileWriter.close();
         } catch (IOException ioException) {
             ioException.printStackTrace();

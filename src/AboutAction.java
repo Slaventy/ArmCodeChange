@@ -12,7 +12,7 @@ public class AboutAction implements ActionListener {
 
         textAreaAbout.setFont(new Font("Arial", Font.BOLD, 24));
         textAreaAbout.setForeground(Color.DARK_GRAY);
-        textAreaAbout.append("версия 0.001 Beta\n");
+        textAreaAbout.append("версия 1.001 Alpha\n");
 
         textAreaAbout.setFont(new Font("Arial", Font.ITALIC, 12));
         textAreaAbout.setForeground(Color.GRAY);
