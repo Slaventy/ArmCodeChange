@@ -6,22 +6,29 @@ import java.io.*;
 import java.util.Scanner;
 
 public class OpenFileAction extends Component implements ActionListener {
-    protected StringBuilder stringBuilder = new StringBuilder();
-    protected JFileChooser chooser = new JFileChooser();
-
+    private String pathFile = ".";  //путь к файлу изначально открываем рабочую папку
+    private final JFrame jFrame;
+    private final String titleThis;
+    public OpenFileAction(JFrame frame, String title){
+        jFrame = frame;
+        titleThis = title;
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
         FrameContent.textArea.removeAll();
-        stringBuilder.delete(0, stringBuilder.length());
                 try {
-                    chooser.setCurrentDirectory(new File("."));
+                    JFileChooser chooser = new JFileChooser();
+                    StringBuilder stringBuilder = new StringBuilder();
+                    chooser.setCurrentDirectory(new File(pathFile));
                     chooser.showOpenDialog(OpenFileAction.this);
                     File openFile = chooser.getSelectedFile().getAbsoluteFile();
+                    pathFile = openFile.getAbsolutePath(); //заменим путь к файлу на текущею папку
                     Scanner scanner = new Scanner(openFile, "Cp866");
                     while(scanner.hasNextLine()){
                         stringBuilder.append(scanner.nextLine()).append("\n");
                     }
                     FrameContent.textArea.setText(stringBuilder.toString());
+                    jFrame.setTitle(titleThis + " - " + openFile.getName());
                 }catch (Exception exception){
                     exception.printStackTrace();
                 }

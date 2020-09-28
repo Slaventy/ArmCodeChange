@@ -3,6 +3,10 @@
     <output-path>$PROJECT_DIR$/out/artifacts/ArmCodeChange_jar</output-path>
     <root id="archive" name="ArmCodeChange.jar">
       <element id="module-output" name="ArmCodeChange" />
+      <element id="file-copy" path="C:/Windows/Fonts/LiberationMono-Regular.ttf" />
+      <element id="file-copy" path="C:/Windows/Fonts/LiberationMono-Bold.ttf" />
+      <element id="file-copy" path="C:/Windows/Fonts/LiberationMono-BoldItalic.ttf" />
+      <element id="file-copy" path="C:/Windows/Fonts/LiberationMono-Italic.ttf" />
     </root>
   </artifact>
 </component>

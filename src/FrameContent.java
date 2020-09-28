@@ -4,16 +4,17 @@ import java.awt.*;
 public class FrameContent extends JFrame {
     private static final int DEFAULT_WEIGHT = 500;
     private static final int DEFAULT_HEIGHT = 500;
-    protected static JTextArea textArea;
+    protected static JTextArea textArea;        //текстовое поле для вводимого текста
+    protected String title = "ARMTextForWin";
 
-    public FrameContent(String str){
+    public FrameContent(){
         //В окне создаем менюБар
         JMenuBar jMenuBar = new JMenuBar();
 
         //Создаем текстовое поле
         textArea = new JTextArea(8, 40);
-        textArea.setEditable(false);//поле не редактируется
-        textArea.setFont(new Font("Liberation Mono", Font.PLAIN, 9));//меняем стиль
+        textArea.setEditable(false); //поле не редактируется
+        textArea.setFont(new Font("Liberation Mono", Font.PLAIN, 9));   //меняем стиль
 
         //создание скрол панели для текстового поля
         JScrollPane jScrollPane = new JScrollPane(textArea);
@@ -48,7 +49,8 @@ public class FrameContent extends JFrame {
         setJMenuBar(jMenuBar);
 
         //Слушаем пункты менюБар
-        jOpen.addActionListener(new OpenFileAction());
+        //Название программы добавиться и название файла
+        jOpen.addActionListener(new OpenFileAction(this, title));
 
         jSave.addActionListener(new SaveFileAction());
         jPrint.addActionListener(new PrintAction());
@@ -60,8 +62,8 @@ public class FrameContent extends JFrame {
         add(jScrollPane, BorderLayout.CENTER);
 
         //установки фрейма
+        setTitle(title);//устанавливаем название программы в заголовок
         setSize(DEFAULT_WEIGHT, DEFAULT_HEIGHT);
-        setTitle(str);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
